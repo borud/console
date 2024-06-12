@@ -52,7 +52,8 @@ func NewConsole() *Console {
 	// The way we create and update list items feels a bit naughty since
 	// create() and update() have to be in sync with regard to the inner
 	// structure of the CanvasObject.
-	console.list = widget.NewList(
+	var list *widget.List
+	list = widget.NewList(
 		func() int {
 			return len(console.messages)
 		},
@@ -92,12 +93,15 @@ func NewConsole() *Console {
 
 			// limit lock scope to where we interact with the messages slice.
 			console.mu.Lock()
-			defer console.mu.Unlock()
-
 			background.FillColor = console.messages[i].color
 			label.Text = console.messages[i].msg
+			console.mu.Unlock()
+
+			list.SetItemHeight(i, stack.MinSize().Height)
 			o.Refresh()
 		})
+
+	console.list = list
 
 	console.ExtendBaseWidget(console)
 	return console
