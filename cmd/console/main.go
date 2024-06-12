@@ -1,8 +1,10 @@
+// Package main contains a very simple demo of how to use the console widget.
 package main
 
 import (
 	"fmt"
 	"image/color"
+	"strings"
 	"time"
 
 	"fyne.io/fyne/v2"
@@ -23,11 +25,13 @@ func main() {
 	errorColor := color.RGBA{R: 0xfc, G: 0x25, B: 0x12, A: 0xaa}
 
 	go func() {
+
 		for i := 0; ; i++ {
 			console.AppendWithColor(fmt.Sprintf("%d this is a message that says everything is OK %s", i, time.Now().Format(time.RFC3339)), okColor)
 			console.AppendWithColor(fmt.Sprintf("%d this is a warning message %s", i, time.Now().Format(time.RFC3339)), warningColor)
 			console.AppendWithColor(fmt.Sprintf("%d this is an error message %s", i, time.Now().Format(time.RFC3339)), errorColor)
 			console.Append(fmt.Sprintf("%d this is a plain message %s", i, time.Now().Format(time.RFC3339)))
+			console.Append(strings.Repeat("this is a very long message", 10))
 			time.Sleep(500 * time.Millisecond)
 		}
 	}()
