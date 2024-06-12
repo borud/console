@@ -15,10 +15,15 @@ type Console struct {
 	widget.BaseWidget
 	vbox               *fyne.Container
 	list               *fyne.Widget
-	MaxLines           int
-	ScrollToBottom     bool
-	BackgroundColor    color.Color
 	scrollToBottomFunc func()
+	// MaxLines is the maximum number of messages to keep.  Once we hit this
+	// number of messages, older messages are removed.
+	MaxLines int
+	// ScrollToBottom will scroll the window to the latest message (bottom) when
+	// a new message is appended. The default number of lines is 1000.
+	ScrollToBottom bool
+	// BackgroundColor is the default background color of messages.
+	BackgroundColor color.Color
 }
 
 const (
@@ -29,7 +34,8 @@ var (
 	defaultBackgroundColor = color.RGBA{R: 0xee, G: 0xee, B: 0xee, A: 0xff}
 )
 
-// NewConsole creates a new console widget.
+// NewConsole creates a new console widget with default MaxLines and the default
+// message background color.
 func NewConsole() *Console {
 	console := &Console{
 		MaxLines:        defaultMaxLines,
@@ -68,7 +74,7 @@ func (c *Console) Append(msg string) {
 	c.AppendWithColor(msg, c.BackgroundColor)
 }
 
-// Clear the console widget.
+// Clear the console.
 func (c *Console) Clear() {
 	c.vbox.RemoveAll()
 }
