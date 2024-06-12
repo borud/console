@@ -1,4 +1,4 @@
-// Package console is a simple Fyne widget for scrolling log messages. The intended use for this is
+// Package console is a simple Fyne widget for scrolling log messages.
 package console
 
 import (
