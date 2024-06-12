@@ -2,6 +2,8 @@
 
 `Console` is a simple fyne Widget intended for logging messages to a window.
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/borud/console.svg)](https://pkg.go.dev/github.com/borud/console)
+
 ![Screenshot](console.png)
 
 ## Example
