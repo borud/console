@@ -54,7 +54,7 @@ This will produce the binary `bin/console`.
 
 ## Notes
 
-Big thank you to @andydotxyz for suggesting I use the List widget for the log view.
+Big thank you to [Andy Williams](https://github.com/andydotxyz) for suggesting I use the List widget for the log view.
 
 When the next release of Fyne becomes available it should be possible to get rid of the list item separator.
 
