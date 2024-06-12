@@ -52,8 +52,10 @@ make
 
 This will produce the binary `bin/console`.
 
-## Caveats
+## Notes
 
-Note that I'm very new to Fyne so this widget does not seem to be very performant.  But if you can live with that (at least until I learn more about Fyne), by all means, use it.  If you have ideas on how to improve it, I'd love to hear from you and learn.  I made this mostly because I needed the functionality in an application.
+Big thank you to @andydotxyz for suggesting I use the List widget for the log view.
 
-You can find me on the [Gophers Slack](https://gophers.slack.com/archives/D026HLJ31H7)
+When the next release of Fyne becomes available it should be possible to get rid of the list item separator.
+
+If you have some tips for how I can improve this, you can talk to me on the [Gophers Slack](https://gophers.slack.com/archives/D026HLJ31H7)
